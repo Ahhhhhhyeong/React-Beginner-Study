@@ -54,7 +54,6 @@
             const [invert, setInvert] = React.useState(false);
             const onChange = (event) => {               
                 setAmount(event.target.value)
-                console.log(Math.round((amount / 1.609344) * 1000) / 1000);
             };
             const reset = () => {
                 setAmount(0);
@@ -67,7 +66,7 @@
                 <div>
                     <div>
                         <label htmlFor="km">Km</label>
-                        <input  value = {invert ? Math.round((amount / 1.609) * 1000) / 1000: amount }
+                        <input  value = {invert ? Math.round((amount * 1.609) * 1000) / 1000 : amount }
                                 id="km"
                                 placeholder="Km"
                                 type="number"
@@ -77,7 +76,7 @@
                     </div>
                     <div>
                         <label htmlFor="miles">Miles</label>
-                        <input  value = {invert ? amount : Math.round((amount * 1.609) * 1000) / 10000}
+                        <input  value = {invert ? amount : Math.round((amount / 1.609) * 1000) / 1000}
                                 id="miles"
                                 placeholder="Miles"
                                 type="number"
